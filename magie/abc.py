@@ -261,6 +261,10 @@ class Font:
         name = pygame.font.get_default_font()
         return cls(name, size, is_system=True)
 
+    def get_height(self) -> int:
+        """Get the height of the font."""
+        return self.__font.get_height()
+
     def render(self, text: str, color: tuple):
         if type(color) is Colors:
             color = color.value
