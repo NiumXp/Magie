@@ -24,20 +24,36 @@ class Window:
 
     @property
     def width(self) -> int:
-        """Returns the widget of the window."""
-        w, _ = pygame.display.get_window_size()
-        return w
+        """Alias for Window.get_width."""
+        return self.get_width()
 
     @property
     def height(self) -> int:
-        """Returns the height of the window."""
-        _, h = pygame.display.get_window_size()
-        return h
+        """Alias for Window.get_height."""
+        return self.get_height()
 
     @property
     def size(self) -> tuple:
-        """Returns the size of the window."""
-        return pygame.display.get_window_size()
+        """Alias for Window.get_size."""
+        return self.get_size()
+
+    def get_width(self) -> int:
+        """Returns the widget of the window."""
+        if self.surface:
+            return self.surface.get_width()
+        return self.initial_dimension[0]
+
+    def get_height(self) -> int:
+        """Returns the height of the window."""
+        if self.surface:
+            return self.surface.get_height()
+        return self.initial_dimension[1]
+
+    def get_size(self) -> tuple:
+        """Returns the size of the size."""
+        if self.surface:
+            return self.surface.get_size()
+        return self.initial_dimension
 
     def build(self):
         """Build the window."""
