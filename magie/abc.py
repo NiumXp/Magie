@@ -225,6 +225,8 @@ class Capsule(abc.ABC):
             drawable.__name = f"Drawable:{len(self.__drawables)}"
         if self.__drawables.get(drawable.name, False):
             raise NameError(f"name '{drawable.name}' already exists")
+        if enable:
+            drawable.enable()
         self.__drawables[drawable.name] = drawable
         return drawable.name
 
