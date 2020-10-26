@@ -6,7 +6,7 @@ class Window:
         self.surface = None
 
         self.initial_title = title
-        self.dimension = dimension
+        self.initial_dimension = dimension
 
     @property
     def title(self) -> str:
@@ -22,9 +22,26 @@ class Window:
         """Alias for `Window.title = ...`."""
         self.title = new_title
 
+    @property
+    def width(self) -> int:
+        """Returns the widget of the window."""
+        w, _ = pygame.display.get_window_size()
+        return w
+
+    @property
+    def height(self) -> int:
+        """Returns the height of the window."""
+        _, h = pygame.display.get_window_size()
+        return h
+
+    @property
+    def size(self) -> tuple:
+        """Returns the size of the window."""
+        return pygame.display.get_window_size()
+
     def build(self):
         """Build the window."""
-        self.surface = pygame.display.set_mode(self.dimension)
+        self.surface = pygame.display.set_mode(self.initial_dimension)
         self.set_title(self.initial_title)
 
         return self
