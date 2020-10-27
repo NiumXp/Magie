@@ -135,6 +135,24 @@ class Capsule(abc.ABC):
         """Returns the drawables of the object."""
         return self.__drawables
 
+    def clear(self):
+        """Clear the capsule."""
+        self.__timers.clear()
+        self.__listeners.clear()
+        self.__drawables.clear()
+
+    def clear_timers(self):
+        """Clear all timers."""
+        self.__timers.clear()
+
+    def clear_listeners(self):
+        """Clear all listeners."""
+        self.__listeners.clear()
+
+    def clear_drawables(self):
+        """Clear all drawables."""
+        self.__drawables.clear()
+
     def extend(self, capsule):
         if issubclass(capsule.__class__, self.__class__):
             raise TypeError("magie.abc.Capsule expected")
