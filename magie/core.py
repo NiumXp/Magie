@@ -9,11 +9,11 @@ pygame.init()
 
 
 class Magie(abc.Capsule, abc.Widget):
-    def __init__(self, width: int, height: int, fps: int = 60):
+    def __init__(self, title: str, width: int, height: int, fps: int = 60):
         super().__init__()
         abc.Widget.__init__(self, state=State.DISABLED)
 
-        self.window = window.Window("Magie", (width, height))
+        self.window = window.Window(title, (width, height))
         self.fps = fps
 
     def dispath(self, name, *args):
